@@ -1,32 +1,33 @@
-*{
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
-:root{
+:root {
     font-size: 62.5%;
-  --background-primary: #F4F5FB;
-  --background-secondary: #FFF;
-  --color-brand: #CA3884;
-  --color-brand-hover: #A52C6B;
-  --color-danger: #C93847;
-  --content-primary: #080B12;
-  --content-secondary: #374151;
-  --content-tertiary: #9CA3AF;
-  --always-white: #FFF;
-  --border-primary: #D1D5DB;
-  --border-hover: #B9C2D0;
+
+    --background-primary: #F4F5FB;
+    --background-secondary: #FFF;
+    --color-brand: #CA3884;
+    --color-brand-hover: #A52C6B;
+    --color-danger: #C93847;
+    --content-primary: #080B12;
+    --content-secondary: #374151;
+    --content-tertiary: #9CA3AF;
+    --always-white: #FFF;
+    --border-primary: #D1D5DB;
+    --border-hover: #B9C2D0;
 }
 
-body{
+body {
     font-size: 1.6rem;
     padding: 3.2rem;
-    background: var(--background-primary);
+    background-color: var(--background-primary);
 }
 
-header{
+header {
     margin-bottom: 4.4rem;
     max-width: 62.7rem;
     margin-inline: auto;
@@ -34,40 +35,41 @@ header{
     flex-direction: column;
     align-items: start;
 
-    img{
+    img {
         width: 15.4rem;
         margin-inline: auto;
         margin-bottom: 3rem;
     }
 
-
-    button{
+    button {
         border: none;
         background: none;
         font-size: 1.4rem;
         line-height: 1.6rem;
         font-weight: 500;
-        margin-bottom: 1.6rem;
         color: var(--color-brand);
         cursor: pointer;
     }
 
-    h1{
+    h1 {
         font-size: 2.4rem;
         color: var(--content-primary);
         line-height: 3.2rem;
     }
+
+
 }
 
-main{
+main {
     max-width: 62.7rem;
     margin-inline: auto;
 }
 
-.add-item{
+.add-item {
     margin-bottom: 4rem;
-    input{
-        max-width: 100%;
+
+    input {
+        width: 100%;
         padding: 1.2rem;
         border: 2px solid var(--border-primary);
         border-radius: 1.2rem;
@@ -75,44 +77,39 @@ main{
         outline: none;
         color: var(--content-primary);
 
-
-        &::placeholder{
+        &::placeholder {
             color: var(--content-tertiary);
         }
 
-        &:hover{
+        &:hover {
             border: 2px solid var(--border-hover);
         }
 
-        &:focus{
+        &:focus {
             border: 2px solid var(--color-brand);
         }
-
-
-      }
-
-    button{
-    background: var(--color-brand);
-    border: none;
-    color: var(--always-white);
-    width: 100%;
-    padding: 1rem 2.4rem;
-    font-size: 1.6rem;
-    line-height: 2rem;
-    border-radius: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-
-    &:hover{
-        background: var(--color-brand-hover);
     }
-    
+
+    button {
+        background: var(--color-brand);
+        border: none;
+        color: var(--always-white);
+        width: 100%;
+        padding: 1rem 2.4rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        border-radius: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+            background: var(--color-brand-hover);
+        }
     }
 }
 
-
-.list{
-    .item{
+.list {
+    .item {
         background: var(--background-secondary);
         padding: 1.2rem;
         margin-bottom: 1.2rem;
@@ -124,12 +121,41 @@ main{
         font-weight: 500;
         border-radius: 1.2rem;
         box-shadow: 0 2px 6px rgba(8, 11, 18, 0.2);
-    }
+        
 
-    div{
-        display: flex;
-        gap: 1.2rem;
-        align-items: center;
+        div {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+        }
     }
 }
 
+        input {
+            display: none;
+        }
+
+        .custom-checkbox {
+            width: 1.6rem;
+            height: 1.6rem;
+            border: 1px solid var(--border-primary);
+            border-radius: .6rem;
+            cursor: pointer;
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        div:has(input:checked) {
+        .custom-checkbox {
+            background: var(--color-brand);
+            border: 1px solid var(--color-brand);
+            transition: background .2s ease;
+        }
+
+        label {
+            text-decoration: line-through;
+        }
+     }
+   
