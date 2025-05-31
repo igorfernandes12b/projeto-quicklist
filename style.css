@@ -58,3 +58,37 @@ header{
         line-height: 3.2rem;
     }
 }
+
+main{
+    max-width: 62.7rem;
+    margin-inline: auto;
+}
+
+.add-item{
+    margin-bottom: 4rem;
+    input{
+        max-width: 100%;
+        padding: 1.2rem;
+        border: 2px solid var(--border-primary);
+        border-radius: 1.2rem;
+        margin-bottom: 1.6rem;
+        outline: none;
+        color: var(--content-primary);
+
+
+        &::placeholder{
+            color: var(--content-tertiary);
+        }
+
+        &:hover{
+            border: 2px solid var(--border-hover);
+        }
+
+        &:hover{
+            border: 2px solid var(--color-brand);
+        }
+
+        
+    }
+}
+
