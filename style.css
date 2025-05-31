@@ -188,6 +188,24 @@ main{
     opacity: 1;
     transform: translateY(0);
     transition: opacity .4s ease, transform .4s ease;
+
+    div{
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+    }
+
+    i{
+        font-size: 2rem;
+    }
+
+    button{
+        border: none;
+        background: none;
+        color: var(--always-white);
+        cursor: pointer;
+    }
 }
 
 .hide-warning{
