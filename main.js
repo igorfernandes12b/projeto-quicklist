@@ -3,6 +3,12 @@ let items = []
 function addItem() {
     const itemName = document.querySelector("#item").value
 
+    if (itemName === "") {
+        alert("Digite um item para adicionar")
+        return
+    }
+
+
     const item = {
         name: itemName,
         checked: false
@@ -14,6 +20,12 @@ function addItem() {
 
     showItemsList()
 }
+
+document.querySelector("#item").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        addItem()
+    }
+})
 
 function showItemsList() {
     const sectionList = document.querySelector(".list")
