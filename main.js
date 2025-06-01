@@ -1,5 +1,4 @@
-
-  let items = []
+let items = []
 
 function addItem() {
     const itemName = document.querySelector("#item").value
@@ -19,6 +18,8 @@ function addItem() {
 function showItemsList() {
     const sectionList = document.querySelector(".list")
     sectionList.textContent = ""
+
+    items.sort((itemA, itemB) => Number(itemA.checked) - Number(itemB.checked))
 
     items.map((item, index) => {
         sectionList.innerHTML += `
@@ -70,7 +71,6 @@ function checkItem(itemName) {
     showItemsList()
 }
 
-
 function verifyLocalStorageItems() {
     const localStorageItems = localStorage.getItem("items")
 
@@ -79,5 +79,3 @@ function verifyLocalStorageItems() {
         showItemsList()
     }
 }
-
-verifyLocalStorageItems()
