@@ -1,9 +1,9 @@
 let items = []
 
-function addItem(){
-    const itemName = document.querySelector("#item").value
+function addItem() {
+    const itemName = document.querySelector("#item").value.trim()
 
-    if (itemName === ""){
+    if (itemName === "") {
         alert("Digite um item válido")
         return
     }
@@ -14,11 +14,8 @@ function addItem(){
     }
 
     items.push(item)
-
     document.querySelector("#item").value = ""
-
     showItemsList()
-    
 }
 
 document.querySelector("#item").addEventListener("keydown", (event) => {
@@ -27,19 +24,17 @@ document.querySelector("#item").addEventListener("keydown", (event) => {
     }
 })
 
-
-function showItemsList(){
+function showItemsList() {
     const sectionList = document.querySelector(".list")
     sectionList.textContent = ""
 
     items.sort((itemA, itemB) => Number(itemA.checked) - Number(itemB.checked))
 
-
     items.map((item, index) => {
         sectionList.innerHTML += `
-           <div class="item">
+            <div class="item">
                 <div>
-                    <input type="checkbox" name="list" id="item-${index}" ${item.checked && "checked"}>
+                    <input type="checkbox" name="list" id="item-${index}" ${item.checked ? "checked" : ""}>
 
                     <div class="custom-checkbox" onclick="checkItem('${item.nome}')">
                         <img src="./assets/checked.svg" alt="checked">
@@ -53,14 +48,12 @@ function showItemsList(){
                 </button>
             </div>
         `
-
     })
 
     localStorage.setItem("items", JSON.stringify(items))
-    
 }
 
-function removeItem(itemName){
+function removeItem(itemName) {
     const itemIndex = items.findIndex((item) => item.nome === itemName)
     const divWarning = document.querySelector(".warning")
 
@@ -70,39 +63,30 @@ function removeItem(itemName){
         divWarning.classList.add("hide-warning")
     }, 4000)
 
-    if(itemIndex !== -1) {
+    if (itemIndex !== -1) {
         items.splice(itemIndex, 1)
     }
 
     showItemsList()
-
 }
 
-function addHideWarningClass(){
+function addHideWarningClass() {
     document.querySelector(".warning").classList.add("hide-warning")
-
 }
 
-
-function checkItem(itemName){
+function checkItem(itemName) {
     const item = items.find((item) => item.nome === itemName)
-    
 
-
-    if(item.checked === true) {
-        item.checked = false
-    } else {
-        item.checked = true
+    if (item) {
+        item.checked = !item.checked
+        showItemsList()
     }
-
-    showItemsList()
 }
 
-
-function verifyLocalStorageItems(){
+function verifyLocalStorageItems() {
     const localStorageItems = localStorage.getItem("items")
 
-    if(localStorageItems) {
+    if (localStorageItems) {
         items = JSON.parse(localStorageItems)
         showItemsList()
     }
