@@ -5,23 +5,17 @@
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
-    />
-    <title>QuickList - Guilherme Queiroz 22B</title>
+
+    <!-- Ícones do Phosphor -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+
+    <title>QuickList - igor fernandes rodrigues 22B</title>
 </head>
 <body>
     <header> 
@@ -41,14 +35,15 @@
             <button onclick="addItem()">Adicionar item</button>
         </section>
 
-        <section class="list"> </section>
+        <section class="list"></section>
 
         <div class="warning hide-warning">
             <div>
                 <i class="ph ph-warning-circle ph-fill"></i>
                 <span>O item foi removido da lista</span>
             </div>
-            <button onclick="addHideWarningClass">
+            <!-- Correção aqui: chamada da função com () -->
+            <button onclick="addHideWarningClass()">
                 <i class="ph ph-x"></i>
             </button>
         </div>
