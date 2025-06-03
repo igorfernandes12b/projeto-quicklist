@@ -1,20 +1,23 @@
-let items = []
+let items = []More actions
 
 function addItem() {
-    const itemName = document.querySelector("#item").value.trim()
+    const itemName = document.querySelector("#item").value
 
     if (itemName === "") {
-        alert("Digite um item válido")
+        alert("Digite um item para adicionar")
         return
     }
 
+
     const item = {
-        nome: itemName,
+        name: itemName,
         checked: false
     }
 
     items.push(item)
+
     document.querySelector("#item").value = ""
+
     showItemsList()
 }
 
@@ -34,16 +37,16 @@ function showItemsList() {
         sectionList.innerHTML += `
             <div class="item">
                 <div>
-                    <input type="checkbox" name="list" id="item-${index}" ${item.checked ? "checked" : ""}>
+                    <input type="checkbox" name="List" id="item-${index}" ${item.checked && "checked"}>
 
-                    <div class="custom-checkbox" onclick="checkItem('${item.nome}')">
+                    <div class="custom-checkbox" onclick="checkItem('${item.name}')">
                         <img src="./assets/checked.svg" alt="checked">
                     </div>
 
-                    <label for="item-${index}" onclick="checkItem('${item.nome}')">${item.nome}</label>
+                    <label for="item-${index}" onclick="checkItem('${item.name}')">${item.name}</label>
                 </div>
 
-                <button onclick="removeItem('${item.nome}')">
+                <button onclick="removeItem('${item.name}')">
                     <img src="./assets/trash-icon.svg" alt="trash icon">
                 </button>
             </div>
@@ -54,7 +57,7 @@ function showItemsList() {
 }
 
 function removeItem(itemName) {
-    const itemIndex = items.findIndex((item) => item.nome === itemName)
+    const itemIndex = items.findIndex(item => item.name === itemName)
     const divWarning = document.querySelector(".warning")
 
     divWarning.classList.remove("hide-warning")
@@ -75,12 +78,9 @@ function addHideWarningClass() {
 }
 
 function checkItem(itemName) {
-    const item = items.find((item) => item.nome === itemName)
-
-    if (item) {
-        item.checked = !item.checked
-        showItemsList()
-    }
+    const item = items.find((item) => item.name === itemName)
+    item.checked = !item.checked
+    showItemsList()
 }
 
 function verifyLocalStorageItems() {
@@ -91,5 +91,4 @@ function verifyLocalStorageItems() {
         showItemsList()
     }
 }
-
-verifyLocalStorageItems()
+}
